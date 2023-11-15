@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+                           default-init-method="init" default-destroy-method="destroy">
+      
+<bean id="helloBean" class="com.pavan.beans.HelloBean"  init-method="localInit" destroy-method="localDestroy">
+	    <property name="name" value="pavan"/>
+	    <property name="message" value="good morning!!!!"/>
+	 </bean>
+                     
+<!-- If init and destroy method names are same in threee bean classes then we can declare them globally in root beans tag -->
+<!-- 
+<bean id="helloBean" class="com.pavan.beans.HelloBean">
+	    <property name="name" value="pavan"/>
+	    <property name="message" value="good morning!!!!"/>
+	 </bean>
+	 
+	 
+ 
+<bean id="haiBean" class="com.pavan.beans.HaiBean" >
+	    <property name="name" value="pavan"/>
+	    <property name="message" value="good afternoon!!!!"/>
+	 </bean>
+<bean id="wishBean" class="com.pavan.beans.WishBean" >
+	    <property name="name" value="pavan"/>
+	    <property name="message" value="good night!!!!"/>
+	 </bean>
+ -->
+ 
+</beans>
