@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- <bean id="helloBean" class="com.pavan.beans.HelloBean">
+	    <property name="name" value="pavan"/>
+	    <property name="message" value="good morning!!!!"/>
+	 </bean>
+ -->
+ <!-- 1.For bean Custom initialization and Destruction -->
+ <!--    <bean id="helloBean" class="com.pavan.beans.HelloBean" init-method="init" destroy-method="destroy"/>      -->  
+<!-- If we Uncomment both then UserDefined values takes more priority (bcoz of order) and they gor printed -->
+
+
+<!-- 2.For InitializationBean and DesposalBean callBack Interfaces -->
+ <!--       <bean id="helloBean" class="com.pavan.beans.HelloBean"/>        --> 
+       
+ <!-- 3.For using @PostConstruct and @PreDestroy -->
+ 
+  <context:annotation-config/>
+  <bean id="helloBean" class="com.pavan.beans.HelloBean"/> 
+ 
+
+    
+</beans>
