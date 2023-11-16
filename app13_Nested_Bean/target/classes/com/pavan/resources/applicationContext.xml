@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+                           
+                           
+     <bean id="empBean" class="com.pavan.beans.Employee">
+        	<property name="eid" value="101"/>
+        	<property name="ename" value="pavan"/>
+        	<property name="esal" value="50000000"/>
+        	<property name="eaddr" value="Rpk"/>
+        	<property name="acc">
+        		<bean id="account" class="com.pavan.beans.Account">
+        			<property name="accNo" value="Kotak"/>
+        			<property name="accName" value="Nithin"/>
+        			<property name="accType" value="Savings"/>
+        			<property name="balance" value="50000"/>
+        		</bean>
+        	</property>
+        </bean>
+     
+     
+  <!--  <bean id="empBean" class="com.pavan.beans.Employee">
+        	<property name="eid" value="101"/>
+        	<property name="ename" value="pavan"/>
+        	<property name="esal" value="50000000"/>
+        	<property name="eaddr" value="Rpk"/>
+        	<property name="acc" ref="account"/>
+        		
+        </bean>
+        <bean id="account" class="com.pavan.beans.Account">
+        			<property name="accNo" value="Kotak"/>
+        			<property name="accName" value="Nithin"/>
+        			<property name="accType" value="Savings"/>
+        			<property name="balance" value="50000"/>
+        </bean>
+    -->
+</beans>
