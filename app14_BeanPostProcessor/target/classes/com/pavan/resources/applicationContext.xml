@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+                           
+       <bean id="accBean" class="com.pavan.beans.Account">
+       <!-- If we forgot to specify any value(any property) then default values are allocated (can check by commenting any property)
+             only when BeanPostProcessor not applied-->
+       		<property  name="accNo" value="abc123"/>
+       		<property  name="accHolderName" value="pavan"/>
+       	<!--  	<property  name="accType" value="savings"/> -->
+       		<property  name="balance" value="25000"/>
+       		<property  name="accHolderEmail" value="ap@gmail.com"/>
+       		<property  name="accHolderMobileNo" value="9876543210"/>
+       
+       </bean>
+       
+       <!-- 
+       		output:  >>>when BeanPostProcessor not applied
+       		
+       	Details...
+		Acc Number      :abc123
+		Acc Holder Name :pavan
+		Type            :null
+		Balance         :25000
+		Email           :ap@gmail.com
+		Mobile          :9876543210
+        -->
+        
+             
+      <bean id="accPostProcessor" class="com.pavan.processor.AccountPostProcessor"/>  
+      
+       <!-- 
+       		output:  >>>when BeanPostProcessor applied
+       		
+       	Details...
+		Acc Number      :abc123
+		Acc Holder Name :pavan
+		Type            :savings
+		Balance         :25000
+		Email           :ap@gmail.com
+		Mobile          :91-9876543210
+        -->
+</beans>
