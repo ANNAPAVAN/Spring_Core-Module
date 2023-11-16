@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- 1.Normal Case -->     
+   <!--                
+      <bean id="wishBean" class="com.pavan.beans.WishBean">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Have a great day!!!!"/>
+      </bean>  
+      
+      <bean id="helloBean" class="com.pavan.beans.HelloBean">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Good Morning!!!!"/>
+      </bean>
+      
+      <bean id="welcomeBean" class="com.pavan.beans.WelcomeBean">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Welcome to programming!!!!"/>
+      </bean>
+    -->     
+    <!-- output
+         
+         	Hello pavan Have a great day!!!!
+			Hello pavan Good Morning!!!!
+			Hello pavan Welcome to programming!!!!
+     -->
+     
+     
+     
+    
+<!-- 2.Inheritence -->   
+   <!--      <bean id="wishBean" class="com.pavan.beans.WishBean">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Have a great day!!!!"/>
+      </bean>  
+      
+      <bean id="helloBean" class="com.pavan.beans.HelloBean" parent="wishBean">
+      		
+      </bean>
+      
+      <bean id="welcomeBean" class="com.pavan.beans.WelcomeBean" parent="wishBean">
+      		
+      </bean> 
+   -->
+      <!-- output
+         
+         	Hello pavan Have a great day!!!!
+			Hello pavan Have a great day!!!!
+			Hello pavan Have a great day!!!!
+     -->  
+     
+     
+     
+     
+     
+ <!-- 3.Only name property is Inherited (reused), i.e ,we can override the properties-->
+  <!--   <bean id="wishBean" class="com.pavan.beans.WishBean">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Have a great day!!!!"/>
+      </bean>  
+      
+      <bean id="helloBean" class="com.pavan.beans.HelloBean" parent="wishBean">
+      		<property name="message" value="Good Morning!!!!"/>
+      </bean>
+      
+      <bean id="welcomeBean" class="com.pavan.beans.WelcomeBean" parent="wishBean">
+      		<property name="message" value="Welcome to programming!!!!"/>
+      </bean> 
+     -->   
+     <!-- output
+         
+			Hello pavan Have a great day!!!!
+			Hello pavan Good Morning!!!!
+			Hello pavan Welcome to programming!!!!
+     -->  
+           
+           
+           
+               
+<!-- 4.Using abstract : Using abstract properties   -->
+	<!-- just acting as a template to reuse at each and every bean -->
+	<bean id="anyAbstract" abstract="true">
+      		<property name="name" value="pavan"/>
+      		<property name="message" value="Have a great day!!!!"/>
+      </bean> 
+
+     <bean id="wishBean" class="com.pavan.beans.WishBean" parent="anyAbstract">
+      		
+      		<property name="message" value="Have a great day!!!!"/>
+      </bean>  
+      
+      <bean id="helloBean" class="com.pavan.beans.HelloBean" parent="anyAbstract">
+      		<property name="message" value="Good Morning!!!!"/>
+      </bean>
+      
+      <bean id="welcomeBean" class="com.pavan.beans.WelcomeBean" parent="anyAbstract">
+      		<property name="message" value="Welcome to programming!!!!"/>
+      </bean> 
+      
+       <!-- output
+         
+			Hello pavan Have a great day!!!!
+			Hello pavan Good Morning!!!!
+			Hello pavan Welcome to programming!!!!
+     -->  
+                         
+ </beans>
