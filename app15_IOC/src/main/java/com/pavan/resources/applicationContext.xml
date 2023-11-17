@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+                        
+         <bean id="courseBean0" class="com.pavan.beans.Course"/>  
+         <bean id="courseBean1" class="com.pavan.beans.Course">
+         	<constructor-arg value="C-111"/>
+         </bean>    
+         <bean id="courseBean2" class="com.pavan.beans.Course">
+         	<constructor-arg value="C-111"/>
+        	<constructor-arg value="Java"/>
+         </bean>         
+                           
+        <bean id="courseBean" class="com.pavan.beans.Course">
+
+        	<constructor-arg value="C-111"/>
+        	<constructor-arg value="Java"/>
+        	<constructor-arg value="5000"/>  
+        	<!-- Order of variables is same as we created in a constructor of  Course.java file -->
+            <!-- If we comment below assigned values and provide 0-org constructor in Course.java then the output will get with default values -->
+        	<!-- If we provide value for only first one attribute then it search for 1-arg constructor , remaining are assigned with default values -->
+        	<!-- If we provide value for only first two attributes then it search for 2-arg constructor , remaining are assigned with default values -->
+        </bean>
+        
+        
+     <!-- if we don't provide arguments as that we specified order in constructor then provide indexing ,inorder to get expected results -->
+     <!--  <bean id="courseBean" class="com.pavan.beans.Course">
+            
+        	<constructor-arg value="Java" index="1"/>
+        	<constructor-arg value="5000" index="2"/> 
+        	<constructor-arg value="C-111" index="0"/>
+        
+        </bean>  
+      -->  
+      
+      
+      <!-- Depend on type also we can solve the order problem -->
+       <!--  <bean id="courseBean" class="com.pavan.beans.Course">
+      		 <constructor-arg value="C-111" type="String"/>
+       		<constructor-arg value="5000" type="int"/>
+       		<constructor-arg value="Java" type="String"/>	
+       </bean>  
+       -->
+      <!-- we can also go for index attribute with datatype -->
+        <!--  <bean id="courseBean" class="com.pavan.beans.Course">
+      		<constructor-arg value="C-111" type="String" index="1"/>
+       		<constructor-arg value="5000" type="int" index="2"/>
+       		<constructor-arg value="Java" type="String" index="0"/>	
+       </bean>  
+       -->
+  </beans>
