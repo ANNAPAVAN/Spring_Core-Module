@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+                           
+        <bean id="addressBean" class="com.pavan.beans.Address">
+        	<property name="pno" value="100/2d"/>
+        	<property name="street" value="MgRoad"/>
+        	<property name="city" value="Hyd"/>
+        	<property name="state" value="Telangana"/>
+        	<property name="country" value="India"/>
+        </bean>
+        <bean id="studentBean" class="com.pavan.beans.Student">
+        	<property name="sid" value="S-111"/>
+        	<property name="sname" value="Anil"/>
+        	<property name="saddr" ref="addressBean"/> <!-- By using ref attribute we can insert one bean into another -->
+        	<property name="squal" >
+        		<list>
+        			<value>Btech</value>
+        			<value>TSBOARD</value>
+        			<value>SSC</value>
+        		</list>
+        	</property>
+        	<property name="scources" >
+        		<set>
+        			<value>WEB</value>
+        			<value>JAVA</value>
+        			<value>SPRING</value>
+        			<value>PYTHON</value>
+        		</set>
+        	</property>
+        	<property name="scources_And_Faculty">
+        	   <map>
+        	   		<entry key="Web" value="Ram"/>
+        	   		<entry key="java" value="Khiran"/>
+        	   		<entry key="spring" value="Somkumar"/>
+        	   		<entry key="python" value="RamaKrishna"/>
+        	   </map>
+        	</property>
+        </bean>
+</beans>
