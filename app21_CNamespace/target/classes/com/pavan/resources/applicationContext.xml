@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:c="http://www.springframework.org/schema/c"
+ >
+ <!-- With Argument name -->
+ 
+ <bean id="courseBean" class="com.pavan.beans.Course"
+    c:cid="C-222"
+    c:cname="PYTHON"
+    c:ccost="12000"
+ />
+ <bean id="studentBean" class="com.pavan.beans.Student"
+    c:sid="S-222"
+    c:sname="Nithin"
+ 	c:saddr="Hyd"
+ 	c:course-ref="courseBean"
+ />
+ 
+ 
+ 
+ 
+ <!--With indexing-->
+ <!--  
+  <bean id="courseBean" class="com.pavan.beans.Course"
+    c:_0="C-222"
+    c:_1="PYTHON"
+    c:_2="12000"
+ />
+ <bean id="studentBean" class="com.pavan.beans.Student"
+    c:_0="S-222"
+    c:_1="Nithin"
+ 	c:_2="Hyd"
+ 	c:_3-ref="courseBean"
+ />
+-->	
+ 
+ 
+ 
+ <!-- With constructor-arg -->
+ <!--    <bean id="courseBean" class="com.pavan.beans.Course">
+   		<constructor-arg value="C-111"/>
+   		<constructor-arg value="JAVA"/>
+   		<constructor-arg value="10000"/>
+   </bean>
+   <bean id="studentBean" class="com.pavan.beans.Student">
+   		<constructor-arg value="S-123"/>
+   		<constructor-arg value="pavan"/>
+   		<constructor-arg value="hyd"/>
+   		<constructor-arg ref="courseBean"/>
+   </bean>
+-->
+
+
+
+<!-- Both Constructor arge and CNamespace (it searches for 6 parameterized constructor so getting Exception)-->
+<!--
+    <bean id="courseBean" class="com.pavan.beans.Course" c:cid="C-222" c:cname="PYTHON" c:ccost="12000">
+   		<constructor-arg value="C-111"/>
+   		<constructor-arg value="JAVA"/>
+   		<constructor-arg value="10000"/>
+   </bean>
+   <bean id="studentBean" class="com.pavan.beans.Student">
+   		<constructor-arg value="S-123"/>
+   		<constructor-arg value="pavan"/>
+   		<constructor-arg value="hyd"/>
+   		<constructor-arg ref="courseBean"/>
+   </bean>
+ -->
+ 
+ 
+ 
+ <!-- if we provide 3 parameters with indexing it works fine -->
+ <!-- 
+  <bean id="courseBean" class="com.pavan.beans.Course" c:_0="C-222" > 		
+   		<constructor-arg value="JAVA" index="1"/>
+   		<constructor-arg value="10000" index="2"/>
+   </bean>
+   <bean id="studentBean" class="com.pavan.beans.Student">
+   		<constructor-arg value="S-123"/>
+   		<constructor-arg value="pavan"/>
+   		<constructor-arg value="hyd"/>
+   		<constructor-arg ref="courseBean"/>
+   </bean>
+  -->
+ </beans>
