@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+<!-- AutoWiring : no -->
+<!-- 	<bean id="accBean" class="com.pavan.beans.Account">
+		<property name="accNo" value="abc123"/>
+		<property name="accName" value="pavan"/>
+		<property name="accType" value="savings"/>
+		<property name="balance" value="50000"/>
+	</bean>
+	
+	<bean id="addrBean" class="com.pavan.beans.Address">
+	    <property name="hno" value="123/2"/>
+	    <property name="street" value="kalkil"/>
+	    <property name="city" value="Hyd"/>
+	    <property name="state" value="Telangana"/>
+	</bean>
+	
+	<bean id="empBean" class="com.pavan.beans.Employee" autowire="no">
+		<property name="eid" value="E-111"/>
+		<property name="ename" value="Pavan"/>
+		<property name="esal" value="10000000"/>
+		<property name="account" ref="accBean"/>
+		<property name="address" ref="addrBean"/>
+	</bean> -->
+	
+	
+	
+	<!-- AutoWiring : byName -->
+<!-- 	<bean id="account" class="com.pavan.beans.Account">
+		<property name="accNo" value="abc123"/>
+		<property name="accName" value="pavan"/>
+		<property name="accType" value="savings"/>
+		<property name="balance" value="50000"/>
+	</bean>
+	
+	<bean id="address" class="com.pavan.beans.Address">
+	    <property name="hno" value="123/2"/>
+	    <property name="street" value="kalkil"/>
+	    <property name="city" value="Hyd"/>
+	    <property name="state" value="Telangana"/>
+	</bean>
+	
+	<bean id="empBean" class="com.pavan.beans.Employee" autowire="byName">
+		<property name="eid" value="E-111"/>
+		<property name="ename" value="Pavan"/>
+		<property name="esal" value="10000000"/>
+		
+	</bean>
+ -->
+ 
+ 
+ <!-- AutoWiring: byType -->
+ <!-- 	<bean id="accBean" class="com.pavan.beans.Account">
+		<property name="accNo" value="abc123"/>
+		<property name="accName" value="pavan"/>
+		<property name="accType" value="savings"/>
+		<property name="balance" value="50000"/>
+	</bean>
+	
+	<bean id="addrBean" class="com.pavan.beans.Address">
+	    <property name="hno" value="123/2"/>
+	    <property name="street" value="kalkil"/>
+	    <property name="city" value="Hyd"/>
+	    <property name="state" value="Telangana"/>
+	</bean>
+	
+	<bean id="empBean" class="com.pavan.beans.Employee" autowire="byType">
+		<property name="eid" value="E-111"/>
+		<property name="ename" value="Pavan"/>
+		<property name="esal" value="10000000"/>
+		
+	</bean>  
+--> 
+
+
+
+   <!-- Normal constructor Dependency Injection -->
+ <!-- <bean id="accBean" class="com.pavan.beans.Account">
+		<property name="accNo" value="abc123"/>
+		<property name="accName" value="pavan"/>
+		<property name="accType" value="savings"/>
+		<property name="balance" value="50000"/>
+	</bean>
+	
+	<bean id="addrBean" class="com.pavan.beans.Address">
+	  	<property name="hno" value="123/2"/>
+	    <property name="street" value="kalkil"/>
+	    <property name="city" value="Hyd"/>
+	    <property name="state" value="Telangana"/>
+	</bean>
+	
+	<bean id="empBean" class="com.pavan.beans.Employee">
+		<constructor-arg value="E-111"/>
+		<constructor-arg value="pavan"/>
+		<constructor-arg value="10000000"/>
+		<constructor-arg ref="accBean"/>
+		<constructor-arg ref="addrBean"/>
+		
+	</bean> 
+ --> 
+ 
+ 
+ <!-- Autowiring: constructor -->
+  <bean id="accBean" class="com.pavan.beans.Account">
+		<property name="accNo" value="abc123"/>
+		<property name="accName" value="pavan"/>
+		<property name="accType" value="savings"/>
+		<property name="balance" value="50000"/>
+	</bean>
+	
+	<bean id="addrBean" class="com.pavan.beans.Address">
+	  	<property name="hno" value="123/2"/>
+	    <property name="street" value="kalkil"/>
+	    <property name="city" value="Hyd"/>
+	    <property name="state" value="Telangana"/>
+	</bean>
+	
+	<bean id="empBean" class="com.pavan.beans.Employee" autowire="constructor">
+		<constructor-arg value="E-111" index="0"/>
+		<constructor-arg value="pavan" index="1"/>
+		<constructor-arg value="10000000" index="2"/>
+		
+		
+	</bean> 
+
+</beans>
