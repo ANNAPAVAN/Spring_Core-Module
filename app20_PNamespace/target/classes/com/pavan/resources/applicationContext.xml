@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:p="http://www.springframework.org/schema/p"
+ >
+<bean id="accBean" class="com.pavan.beans.Account"
+ 	p:accNo="abc123"
+ 	p:accName="sbi"
+ 	p:accType="savings"
+ 	p:balance="500000000"
+ 	
+/>
+<bean id="empBean" class="com.pavan.beans.Employee"
+	p:eid="A-111"
+	p:ename="pavan"
+	p:esal="500000"
+	p:eaddr="hyd"
+	p:acc-ref="accBean"
+/>
+ 
+ 
+ <!-- Will get an Exception if we provide both at a time (use either property tag or PNamespace to get expected output)-->
+ <!-- 
+ <bean id="accBean" class="com.pavan.beans.Account" p:accNo="abc123" p:accName="sbi" p:accType="savings" p:balance="500000000">
+    <property name="accNo" value="xyz123"/>
+    <property name="accName" value="kotak"/>
+    <property name="accType" value="savings"/>
+    <property name="balance" value="5000000000000"/>
+ </bean>
+<bean id="empBean" class="com.pavan.beans.Employee" p:eid="A-111" p:ename="pavan"	p:esal="500000"	p:eaddr="hyd" p:acc-ref="accBean">
+	<property name="eid" value="Z-111"/>
+	<property name="ename" value="nithin"/>
+	<property name="esal" value="10000000"/>
+	<property name="eaddr" value="Hyd"/>
+	<property name="acc" ref="accBean"/>
+</bean>
+ -->
+
+</beans>
