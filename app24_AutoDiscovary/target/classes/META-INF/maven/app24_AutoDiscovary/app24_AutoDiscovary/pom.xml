@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>app24_AutoDiscovary</groupId>
+  <artifactId>app24_AutoDiscovary</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>app24_AutoDiscovary</name>
+  <dependencies>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-context</artifactId>
+		  <version>5.2.9.RELEASE</version>
+	  </dependency>
+	  
+	  <dependency>
+	  <groupId>com.oracle.database.jdbc</groupId>
+	  <artifactId>ojdbc8</artifactId>
+	  <version>21.5.0.0</version>
+	  </dependency>
+	  
+      	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.26</version>
+		</dependency>
+		
+		<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.9.0</version>
+		</dependency>
+
+
+
+
+
+  </dependencies>
+</project>
