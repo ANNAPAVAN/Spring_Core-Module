@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+>
+<!-- Normal -->
+<!-- 
+   <bean id="account" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee">
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		<property name="acc" ref="account"/> 
+   </bean>
+  -->
+  
+  
+  
+ <!-- byType -->
+   <!--  
+    <bean id="account" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" autowire="byType">
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+ -->
+ 
+ 
+
+<!-- Two accounts with same Type , will get an Exception -->
+<!-- 
+  <bean id="account1" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+    <bean id="account2" class="com.pavan.beans.Account">
+   		<property name="accNo" value="xyz123"/>
+   		<property name="accName" value="anil"/>
+   		<property name="accType" value="current"/>
+   		<property name="balance" value="25000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" autowire="byType">
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+  -->
+  
+  
+  
+  <!-- Handling Exception using autowire-candidate="false" -->
+  <!-- 
+    <bean id="account1" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+    <bean id="account2" class="com.pavan.beans.Account" autowire-candidate="false" >
+   		<property name="accNo" value="xyz123"/>
+   		<property name="accName" value="anil"/>
+   		<property name="accType" value="current"/>
+   		<property name="balance" value="25000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" autowire="byType">
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+ -->
+ 
+ 
+ <context:annotation-config/>
+ <!-- Without using autowire we have to inject one bean into another, then go for annotations -->
+ <!-- above, setAcc(Account acc) method (or) Account acc variable , add annotations in order to achieve this-->
+ 
+ <!-- <bean id="account1" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+  
+   <bean id="employee" class="com.pavan.beans.Employee" >
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+--> 
+
+
+
+<!-- if more than one bean with same type , will get an Exception:NO unique bean -->
+ <!--  <bean id="account1" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+    <bean id="account2" class="com.pavan.beans.Account" >
+   		<property name="accNo" value="xyz123"/>
+   		<property name="accName" value="anil"/>
+   		<property name="accType" value="current"/>
+   		<property name="balance" value="25000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" >
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+  -->  
+ 
+ 
+ 
+ <!-- apply @Qualifier("savingsAcc") to inject only savingsAcc int Employee bean , above setAcc(Account acc) method or Account acc variable -->
+  <bean id="savingsAcc" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+    <bean id="currentAcc" class="com.pavan.beans.Account" >
+   		<property name="accNo" value="xyz123"/>
+   		<property name="accName" value="anil"/>
+   		<property name="accType" value="current"/>
+   		<property name="balance" value="25000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" >
+   		<property name="eno" value="E-111"/>
+   		<property name="ename" value="pavan"/>
+   		<property name="esal" value="200000"/>
+   		<property name="eaddr" value="Hyd"/>
+   		
+   </bean>
+  
+   
+   
+   
+   <!-- with constructor Dependency Injection , to achieve autowiring using annotations-->
+   
+   <!-- <bean id="savingsAcc" class="com.pavan.beans.Account">
+   		<property name="accNo" value="abc123"/>
+   		<property name="accName" value="pavan"/>
+   		<property name="accType" value="savings"/>
+   		<property name="balance" value="50000"/>
+   		
+   </bean>
+    <bean id="currentAcc" class="com.pavan.beans.Account" >
+   		<property name="accNo" value="xyz123"/>
+   		<property name="accName" value="anil"/>
+   		<property name="accType" value="current"/>
+   		<property name="balance" value="25000"/>
+   		
+   </bean>
+   <bean id="employee" class="com.pavan.beans.Employee" >
+   		<constructor-arg value="E-111" index="0"/>
+   		<constructor-arg value="pavan" index="1"/>
+   		<constructor-arg value="200000" index="2"/>
+   		<constructor-arg value="Hyd" index="3"/>
+   		
+   </bean>
+ -->   
+</beans>
