@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+      
+      <!-- Normal -->
+      
+  <!--   <bean id="courseBean" class="com.pavan.beans.Course">
+      		<property name="cid" value="J-111"/>
+      		<property name="cname" value="java"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student">
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean"/>
+       </bean>    
+   -->       
+       
+       
+       
+   <!-- If we provide both Explicit wiring and Auto wiring , then we get output wrt. Explicit wiring -->    
+        <bean id="courseBean1" class="com.pavan.beans.Course">
+      		<property name="cid" value="J-111"/>
+      		<property name="cname" value="java"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+       <bean id="courseBean2" class="com.pavan.beans.Course" autowire-candidate="false">
+      		<property name="cid" value="P-111"/>
+      		<property name="cname" value="Python"/>
+      		<property name="ccost" value="4000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student" autowire="byType">  <!-- Auto Wiring -->
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean2"/>  <!-- Explicit wiring --> 
+       </bean> 
+      
+       <!-- Output
+       
+           	Student Details 
+			Student ID  : S-111
+			Student Name: pavan
+			Student Addr: hyd
+			
+			Course Details
+			Course ID  : P-111
+			Course Name: Python
+			Course Cost: 4000
+        -->
+        
+         <!-- here for explicit wiring python course will be considered into Student -->
+       <!-- here for auto wiring java course will be considered into Student becoz we kept autowire-candidate="false" for python course -->
+        
+        <!-- Conclusion : Explicit wiring dominates Auto Wiring -->    
+</beans>
