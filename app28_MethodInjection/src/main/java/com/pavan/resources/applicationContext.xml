@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+      
+      <bean id = "savingsAccount" class="com.pavan.beans.SavingsAccount"/>
+      <bean id="currentAccount" class="com.pavan.beans.CurrentAccount"/>
+      
+      <!-- Dynamically we are deciding which implementation is required for getAccount() method and which sub class is required for AccountFactory -->
+      <!-- Dynamically we are giving an intimation to IOC container to take a sub class for AccountFactory and
+      	   inside that sub class dynamically prepare implementation for getAccount() and that implementation 
+      	   must return savingsAccount.
+       -->
+       <!-- here we are explicitly deciding from which sub class the implementation for getAccount() is to be taken.  -->
+       <!-- with this dynamic subclasses and dynamic implementations are possible -->
+       
+      <bean id="savingsAccountFactory" class="com.pavan.factory.AccountFactory">
+      		<lookup-method name="getAccount" bean="savingsAccount"/>
+      </bean>
+      <bean id="currentAccountFactory" class="com.pavan.factory.AccountFactory">
+      		<lookup-method name="getAccount" bean="currentAccount"/>
+      </bean>
+      
+      
+
+  
+</beans>
