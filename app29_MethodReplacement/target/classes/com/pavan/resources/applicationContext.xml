@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+             <!-- Normal actual implementation -->              
+  <!--    <bean id="courseBean" class="com.pavan.beans.Course">
+         		<property name="cid" value="C-111"/>
+         		<property name="cname" value="JAVA"/>
+         		<property name="ccost" value="15000"/>
+         </bean> 
+   --> 
+   <!--OUTPUT
+   
+    Course Details 
+	Course Id  : C-111
+	Course Name: JAVA
+	Course cost: 15000 
+	-->
+   
+   <!-- to replace actual implementation with new implementation -->		
+    <bean id="methodReplacerImpl" class="com.pavan.beans.MethodReplacerImpl"/>
+         <bean id="courseBean" class="com.pavan.beans.Course">
+         		<property name="cid" value="C-111"/>
+         		<property name="cname" value="JAVA"/>
+         		<property name="ccost" value="15000"/>
+         		<replaced-method name="getCourseDetails" replacer="methodReplacerImpl"/>
+         </bean> 
+       <!-- OUTPUT
+       	Course Details 
+		Course Id  : C-222
+		Course Name: PYTHON
+		Course cost: 6000
+        -->
+          
+</beans>
+                           
