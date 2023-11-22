@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+      
+      <!-- 
+      
+		<bean id="courseBean" class="com.pavan.beans.Course" scope="singleton">
+      		<property name="cid" value="C-111"/>
+      		<property name="cname" value="JAVA"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student" scope="singleton">
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean"/>
+       </bean>
+  -->    
+       <!-- OutPut
+       
+       	com.pavan.beans.Student@71c3b41
+		com.pavan.beans.Student@71c3b41
+		com.pavan.beans.Student@71c3b41
+		
+		com.pavan.beans.Course@236e3f4e
+		com.pavan.beans.Course@236e3f4e
+		com.pavan.beans.Course@236e3f4e
+        -->    
+      
+      
+      
+        
+  <!--        
+  		<bean id="courseBean" class="com.pavan.beans.Course" scope="prototype">
+      		<property name="cid" value="C-111"/>
+      		<property name="cname" value="JAVA"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student" scope="prototype">
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean"/>
+       </bean>      
+ -->      
+     <!-- Output
+     
+     	com.pavan.beans.Student@45ca843
+		com.pavan.beans.Student@11c9af63
+		com.pavan.beans.Student@757acd7b
+		
+		com.pavan.beans.Course@36b4fe2a
+		com.pavan.beans.Course@574b560f
+		com.pavan.beans.Course@ba54932
+      -->
+     
+     
+     
+      
+ <!--    
+      	<bean id="courseBean" class="com.pavan.beans.Course" scope="singleton">
+      		<property name="cid" value="C-111"/>
+      		<property name="cname" value="JAVA"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student" scope="prototype">
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean"/>
+       </bean>  
+   -->      
+       <!-- Output
+       
+       	com.pavan.beans.Student@3cc1435c
+		com.pavan.beans.Student@6bf0219d
+		com.pavan.beans.Student@dd0c991
+		
+		com.pavan.beans.Course@5f16132a
+		com.pavan.beans.Course@5f16132a
+		com.pavan.beans.Course@5f16132a
+        -->
+   
+   
+   
+   <!-- ONLY HERE THE ASSUMPTION FAILS -->
+       <bean id="courseBean" class="com.pavan.beans.Course" scope="prototype">
+      		<property name="cid" value="C-111"/>
+      		<property name="cname" value="JAVA"/>
+      		<property name="ccost" value="5000"/>
+      </bean>
+             
+       <bean id="studentBean" class="com.pavan.beans.Student" scope="singleton">
+       		<property name="sid" value="S-111"/>
+       		<property name="sname" value="pavan"/>
+       		<property name="saddr" value="hyd"/>
+       		<property name="course" ref="courseBean"/>
+       </bean>     
+       
+       <!-- OUTPUT
+       
+       	com.pavan.beans.Student@71c3b41
+		com.pavan.beans.Student@71c3b41
+		com.pavan.beans.Student@71c3b41
+		
+		com.pavan.beans.Course@236e3f4e
+		com.pavan.beans.Course@236e3f4e
+		com.pavan.beans.Course@236e3f4e
+       
+        --> 
+  
+</beans>
