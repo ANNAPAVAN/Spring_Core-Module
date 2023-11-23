@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+             
+            <!-- BEFORE CREATING Properties File -->              
+  <!--      <bean id="userValidator" class="com.pavan.validator.UserValidator"/>    -->
+       <!-- Normal -->
+<!-- 
+       <bean id="userBean" class="com.pavan.beans.User">
+       		<property name="uname" value="PAVAN"/>
+       		<property name="upwd" value="pavan"/>
+       		<property name="uage" value="20"/>
+       		<property name="uemail" value="a@gmail.com"/>
+       		<property name="umobile" value="91-9876543210"/>
+       </bean>
+ -->
+       <!-- OUTPUT
+       
+       	User Details
+		User Name   : PAVAN
+		User Pwd    : pavan
+		User Age    : 20
+		User Email  : a@gmail.com
+		User Mobile : 91-9876543210
+        -->
+      <!-- When we have any empty data -->
+  <!--      <bean id="userBean" class="com.pavan.beans.User">
+       		<property name="uname" value=""/>
+       		<property name="upwd" value="pavan"/>
+       		<property name="uage" value="0"/>
+       		<property name="uemail" value="a@gmail.com"/>
+       		<property name="umobile" value=""/>
+       </bean>
+  --> 
+       <!-- OUTPUT
+       
+       	User Details
+		User Name   : 
+		User Pwd    : pavan
+		User Age    : 0
+		User Email  : a@gmail.com
+		User Mobile : 
+		
+		User Name is required
+		User Age is required
+		User Mobile Number is required
+        -->
+  
+  
+  
+        
+  <!-- AFTER CREATING Properties File -->
+  <!-- Easy to modify the error message without disturbing java files (UserValidator.java) -->
+        
+    <bean id="userValidator" class="com.pavan.validator.UserValidator">
+    	<property name="resource" value="/com/pavan/resources/Error_Messages.properties"/>
+    </bean>     
+        
+       <bean id="userBean" class="com.pavan.beans.User">
+       		<property name="uname" value=""/>
+       		<property name="upwd" value="pavan"/>
+       		<property name="uage" value="0"/>
+       		<property name="uemail" value="a@gmail.com"/>
+       		<property name="umobile" value=""/>
+       </bean>
+       
+       <!-- OUTPUT
+       
+       	User Details
+		User Name   : 
+		User Pwd    : pavan
+		User Age    : 0
+		User Email  : a@gmail.com
+		User Mobile : 
+		
+		User Name is required...
+		User Age is required...
+		User Mobile Number is required...
+        -->
+        
+        
+        
+        
+        
+</beans>
