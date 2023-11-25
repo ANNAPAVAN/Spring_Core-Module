@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+  <!-- Normal -->
+  <!--      <bean id="empBean" class="com.pavan.beans.Employee">
+        
+        	<property name="eid" value="111"/>
+        	<property name="ename" value="Pavan"/>
+        	<property name="esal" value="500000"/>
+        	<property name="empAddress" ref="empAddr"/>
+        </bean>
+        
+        <bean id="empAddr" class="com.pavan.beans.EmployeeAddress">
+        	<property name="hno" value="172/56"/>
+        	<property name="street" value="Vidyanagar"/>
+        	<property name="city" value="Hyd"/>
+        	<property name="state" value="Telangan"/>
+        	<property name="country" value="India"/>
+        </bean>
+   -->
+   
+   <!-- with Property Editors -->
+        <bean id="empBean" class="com.pavan.beans.Employee">
+        
+        	<property name="eid" value="111"/>
+        	<property name="ename" value="Pavan"/>
+        	<property name="esal" value="500000"/>
+        	<property name="empAddress" value="172/56-Vidyanagar-Hyd-Telangana-INDIA"/>
+        </bean>
+        
+        <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        	<property name="customEditors">
+        		<map>
+        			<entry key="com.pavan.beans.EmployeeAddress" value="com.pavan.editor.EmployeeAddressEditor"/>
+        		</map>
+        	</property>
+        </bean>
+        
+        <!-- OUTPUT
+        Employee Details
+		Employee ID   : 111
+		Employee Name : Pavan
+		Employee Sal  : 500000.0
+		
+		Employee Address: 
+		hno    : 172/56
+		street : Vidyanagar
+		city   : Hyd
+		state  : Telangana
+		country: INDIA
+         -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
