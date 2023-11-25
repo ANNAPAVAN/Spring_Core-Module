@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+                   
+                   <!-- Through .xml files -->  
+  <!-- ReloadableResourceBundleMessageSource: to get data from .propertirs and .xml files -->
+            <bean id="i18nBean" class="com.pavan.beans.I18NBean">
+             		<property name="messageSource" ref="resourceBundleMessageSourceXML"/>
+             </bean>
+			<bean id="resourceBundleMessageSourceXML" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+			    <property name="basename" value="com/pavan/resourcesXML/abc" />
+			</bean>
+	     
+	 <!-- OUTPUT
+	 
+	 	Message :Welcome to en US Users....
+		Message :Welcome to it IT Users....
+		Message :Welcome to fr FR Users....
+	 
+	  -->
+	  
+	  
+	  <!-- Through .properties files -->
+	   <!-- ResourceBundleMessageSource: to get data from only .propertirs files --> 
+			
+<!-- 
+			<bean id="i18nBean" class="com.pavan.beans.I18NBean">
+             		<property name="messageSource" ref="resourceBundleMessageSourceProperties"/>
+             </bean>
+			<bean id="resourceBundleMessageSourceProperties" class="org.springframework.context.support.ResourceBundleMessageSource">
+			    <property name="basename" value="com/pavan/resourcesProperties/abc" />
+			</bean> 
+  -->	
+		<!-- OUTPUT
+		
+		Message :Welcome to en and US Users.
+		Message :Welcome to it and IT Users.
+		Message :Welcome to fr and FR Users.
+		
+		
+		 -->	
+
+</beans>
